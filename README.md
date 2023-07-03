@@ -62,7 +62,7 @@ If you are using another operating system, you can find instructions on how to i
 The software is a simulator that can be run from the command line.
 In the repository directory, run the command
 
-```python3 main.py```.
+```python main.py```.
 
 Running the software should open a window showing the current state of the simulation (updated, by default, once every 1000 steps); it may take some time for the window contents to update.
 
@@ -73,7 +73,7 @@ Some parts of the data (the distribution of strategies, the reputation, ...) are
 The software takes a number of command-line arguments.
 A full list of arguments together with a description can be obtained by running
 
-```python3 main.py --help```.
+```python main.py --help```.
 
 ### Important Command Line Arguments
 In the following, we give a brief description of a few of the most important arguments.
@@ -99,7 +99,7 @@ In the following, we give a few examples of how to run the software.
 In the first example, we run a similar experiment (identical up to random seed) as the one shown in Figure 2 of the paper.
 For this, we use the command
 
-```python3 main.py -I DemDemRandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
+```python main.py -I DemDemRandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
 
 This instructs the simulator to use the `DemDemRandomInit` scenario to initialize the strategies, meaning that it will create two groups of Ghandi players that initially consider every player as `good`, assigning each cell to one of the two groups with uniform probability $0.5$.
 
@@ -109,7 +109,8 @@ Furthermore, we set the polarizing player to be at position $(10,10)$ (`--polari
 
 Finally, we set the number of iterations between two snapshots to 10000 (`-r 10000`) and set the color scheme to `nature` (to match the color scheme used in the paper).
 
-Note that running the simulation for the full $250$ generations ($=200 \cdot 200\cdot 250 = 10000000$ iterations) takes a long time (several hours on a modern laptop).
+Note that running the simulation for the full $250$ generations ($=200 \cdot 200\cdot 250 = 10000000$ iterations) takes a long time (on one of the authors desktop computers, running Ubuntu 23.04 with Python 3.10.6, `numpy` version 1.21.5, `scipy` version 1.8.0 and `matplotlib` version 3.5.1, equipped with a AMD Ryzen 7700x processor with 96 GiB of DDR5-5200 RAM, the simulation finished in 2856 seconds).
+Note that the running time may also notably depend on the operating system, the python version and the version of the dependencies.
 
 ## License
 The software and its documentation are available under the MIT open source license.
