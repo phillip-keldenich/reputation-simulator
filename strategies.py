@@ -126,28 +126,26 @@ strategyColorMap = {
         kandori9: "#FF80FF",
         kandoriInitiallyGood: "#DBB8DB",
     },
-    "science": {
+    "nature": {
         allDefect: "#ff9900",
         allCooperate: "#9eff66",
         republicans: "#cc0000",
         republicans2: "#ff3333",
         democrats: "#0000cc",
-        democrats2: "#3333ff",
+        democrats2: "#cc0000",
         safedirep: "#9900cc",
         safedirep2: "#cc33ff",
-        mafia: "#",
-        mafia2: "#",
-        smartMafia: "#",
-        kandori1: "#",
-        kandori2: "#",
-        kandori3: "#",
-        kandori8: "#",
-        kandori9: "#",
-        kandoriInitiallyGood: "#",
-    },  # purple: cc33ff
+        mafia: "#000000",
+        mafia2: "#333333",
+        smartMafia: "#666666",
+	kandori1: "#800080",
+        kandori2: "#A64DA6",
+        kandori3: "#8F00B2",
+        kandori8: "#FF00FF",
+        kandori9: "#FF80FF",
+        kandoriInitiallyGood: "#DBB8DB",
+    },
 }
-# strategyColor = strategyColorMap['all-different'] # moved to display_config
-
 
 numberOfDifferentStrategies = len(strategyName.keys())
 

@@ -100,8 +100,8 @@ def computeStats(strategy):
             else 0
         )
 
-        nGood = np.int(np.sum((((rep + 10) * sel) - 10) >= 0.5))
-        nBad = np.int(np.sum((((rep - 10) * sel) + 10) < 0.5))
+        nGood = int(np.sum((((rep + 10) * sel) - 10) >= 0.5))
+        nBad = int(np.sum((((rep - 10) * sel) + 10) < 0.5))
 
         repStats[moral] = {
             perMoralMean: avgRep,

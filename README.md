@@ -5,7 +5,7 @@ _A House Divided: Cooperation, Polarization, and the Power of Reputation_.
 
 ## Dependencies and Requirements
 The software is written in Python 3.
-Aside from standard python packages coming with python, it requires the packages `numpy` and `matplotlib`.
+Aside from standard python packages coming with python, it requires the packages `numpy`, `scipy` and `matplotlib`.
 It should work on any operating system that supports python 3 and these packages;
 these packages are required by many other applications and python packages as well,
 and are available for all well-known operating systems, such as Windows 11, Ubuntu Linux 23.04, variants of BSD and MacOS.
@@ -23,10 +23,10 @@ Alternatively, download the repository as a zip file and unpack it.
 The software itself needs no installation and can be run directly from the repository directory.
 To uninstall the software completely, simply delete the repository directory.
 
-However, it requires Python 3 the python packages `numpy` and `matplotlib` to be installed.
+However, it requires Python 3 the python packages `numpy`, `scipy` and `matplotlib` to be installed.
 In the following, we explain how to install these
 on your system; if you are familiar with installing
-python on your system, you can skip this section.
+python and python packages on your system, you can skip this section.
 The installation process should take no more than a minute.
 
 ### Linux
@@ -37,7 +37,7 @@ For example, on Ubuntu, you can install python 3 using the command
 
 ```sudo apt install python3```.
 
-For some distributions, the packages `numpy` and `matplotlib` are available from the package manager as well.
+For some distributions, the packages `numpy`, `scipy` and `matplotlib` are available from the package manager as well.
 For example, on Ubuntu, you can install them using the command
 
 ```sudo apt install python3-numpy python3-matplotlib```.
@@ -46,9 +46,9 @@ If you do not want to or cannot use your package manager to install the dependen
 but your python 3 version comes with the package manager `pip` (sometimes called `pip3`), a command-line tool to install python packages (which is the case for most python 3 installations, in particular on Linux and MacOS),
 you can use it to install the dependencies (`numpy` and `matplotlib`) using one of the following commands:
 
-```pip3 install numpy matplotlib```, or
+```pip3 install numpy scipy matplotlib```, or
 
-```pip install numpy matplotlib```.
+```pip install numpy scipy matplotlib```.
 
 If you do not have `pip` installed, you can install it using the instructions on the [pip website](https://pip.pypa.io/en/stable/installing/).
 
@@ -95,7 +95,21 @@ The arguments `--hell-prob` and `--heaven-prob` control the per-duel probability
 ## Examples
 In the following, we give a few examples of how to run the software.
 
+### Demo/Example 1: Experiment similar to Figure 2
+In the first example, we run a similar experiment (identical up to random seed) as the one shown in Figure 2 of the paper.
+For this, we use the command
 
+```python3 main.py -I DemDemRandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
+
+This instructs the simulator to use the `DemDemRandomInit` scenario to initialize the strategies, meaning that it will create two groups of Ghandi players that initially consider every player as `good`, assigning each cell to one of the two groups with uniform probability $0.5$.
+
+It also sets the side length of the grid to 200 (`-N` flag), measures, displays and stores information about the average score of the players (`--welfare`), and skips the usual initialization of reputations (`--no-rep-init`), which would hide the spread of polarization because polarization would spread in the initialization phase.
+
+Furthermore, we set the polarizing player to be at position $(10,10)$ (`--polarizing-player="(10,10)"`), meaning that the first duel of the player at this position will be mis-interpreted as defection by one of the two groups (instead of the expected and actually played action, which is cooperation).
+
+Finally, we set the number of iterations between two snapshots to 10000 (`-r 10000`) and set the color scheme to `nature` (to match the color scheme used in the paper).
+
+Note that running the simulation for the full $250$ generations ($=200 \cdot 200\cdot 250 = 10000000$ iterations) takes a long time (several hours on a modern laptop).
 
 ## License
 The software and its documentation are available under the MIT open source license.

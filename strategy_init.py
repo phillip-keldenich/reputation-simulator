@@ -45,8 +45,8 @@ def setup_cluster_at(center_strategy, middle_x, middle_y):
 
     s = args.s
     strategies[
-        np.int(middle_x - s / 2) : np.int(middle_x + s / 2 + s % 2),
-        np.int(middle_y - s / 2) : np.int(middle_y + s / 2 + s % 2),
+        int(middle_x - s / 2) : int(middle_x + s / 2 + s % 2),
+        int(middle_y - s / 2) : int(middle_y + s / 2 + s % 2),
     ] = center_strategy
 
 
@@ -66,15 +66,15 @@ def setup_circle(center_strategy):
 def horizontal_split_strategies(upper_strategy, lower_strategy):
     from misc_globals import strategies, N
 
-    strategies[: np.int(N / 2), :] = upper_strategy
-    strategies[np.int(N / 2) :, :] = lower_strategy
+    strategies[: int(N / 2), :] = upper_strategy
+    strategies[int(N / 2) :, :] = lower_strategy
 
 
 def vertical_split_strategies(left_strategy, right_strategy):
     from misc_globals import strategies, N
 
-    strategies[:, : np.int(N / 2)] = left_strategy
-    strategies[:, np.int(N / 2) :] = right_strategy
+    strategies[:, : int(N / 2)] = left_strategy
+    strategies[:, int(N / 2) :] = right_strategy
 
 
 def diagonal_split_strategies(upper_strategy, lower_strategy):
@@ -228,12 +228,12 @@ def two_clusters(strategy1, strategy2, distance):
 
     s = args.s
     strategies[
-        np.int(N / 2 - s / 2) : np.int(N / 2 + s / 2 + s % 2),
-        np.int(N / 2 - s / 2 - distance) : np.int(N / 2 + s / 2 + s % 2 - distance),
+        int(N / 2 - s / 2) : int(N / 2 + s / 2 + s % 2),
+        int(N / 2 - s / 2 - distance) : int(N / 2 + s / 2 + s % 2 - distance),
     ] = strategy1
     strategies[
-        np.int(N / 2 - s / 2) : np.int(N / 2 + s / 2 + s % 2),
-        np.int(N / 2 - s / 2 + distance) : np.int(N / 2 + s / 2 + s % 2 + distance),
+        int(N / 2 - s / 2) : int(N / 2 + s / 2 + s % 2),
+        int(N / 2 - s / 2 + distance) : int(N / 2 + s / 2 + s % 2 + distance),
     ] = strategy2
 
 
