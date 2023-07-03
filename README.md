@@ -14,7 +14,7 @@ we have tested the software on Windows, Linux and MacOS Ventura 13.4.1.
 ## Downloading the software
 Clone the repository to your local machine, using the command
 
-```git clone [https://github.com/phillip-keldenich/reputation-simulator](https://github.com/phillip-keldenich/reputation-simulator)```
+```git clone https://github.com/phillip-keldenich/reputation-simulator```
 
 or an equivalent command in your git client.
 Alternatively, download the repository as a zip file and unpack it.
