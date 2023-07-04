@@ -49,7 +49,7 @@ For example, on Ubuntu, you can install them using the command
 
 If you do not want to or cannot use your package manager to install the dependencies,
 but your python 3 version comes with the package manager `pip` (sometimes called `pip3`), a command-line tool to install python packages (which is the case for most python 3 installations, in particular on Linux and MacOS),
-you can use it to install the dependencies (`numpy` and `matplotlib`) using one of the following commands:
+you can use it to install the dependencies (`numpy`, `scipy` and `matplotlib`) using one of the following commands:
 
 ```pip3 install numpy scipy matplotlib```, or
 
@@ -61,7 +61,11 @@ If you do not have `pip` installed, you can install it using the instructions on
 Normally, MacOS comes with a pre-installed version of python3. If you would rather not use this version, you can use HomeBrew to install a newer version of python3. You can find instructions on how to install HomeBrew on the [HomeBrew website](https://brew.sh/). Once you have installed python3, you can install the dependencies using `pip` (see the instructions for Linux above).
 
 ### Other operating systems
-If you are using another operating system, you can find instructions on how to install python 3 and the dependencies on the [python website](https://www.python.org/downloads/). In particular for Windows, you may also want to check out the [Anaconda distribution](https://www.anaconda.com/products/individual), which comes with python 3 and many useful packages pre-installed (including our dependencies).
+If you are using another operating system, you can find instructions on how to install python 3 and the dependencies on the [python website](https://www.python.org/downloads/). 
+
+In particular for Windows, you may also want to check out the [Anaconda distribution](https://www.anaconda.com/products/individual), which comes with python 3 and many useful packages pre-installed (including our dependencies), and a GUI tool that allows you to, e.g., start a console window in which the above commands can be run.
+
+On Windows 10 and above, the software can also be run from a properly configured WSL (Windows Subsystem for Linux) environment, e.g., one running Ubuntu.
 
 ## Running the software
 The software is a simulator that can be run from the command line.
