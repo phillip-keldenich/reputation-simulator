@@ -16,7 +16,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import threading
-import statistics
+import stats as statistics
 import config
 import display_config
 import os
@@ -59,7 +59,7 @@ from misc_globals import (
     occurringInterestingMorals,
     occurringMorals,
 )
-from statistics import (
+from stats import (
     reputationStats,
     perMoralMean,
     perMoralStdevAbove,

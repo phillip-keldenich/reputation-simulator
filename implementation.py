@@ -41,7 +41,7 @@ import morals
 import display_config
 
 import games_and_strategies
-import statistics
+import stats as statistics
 import safedirep
 import smart_mafia
 

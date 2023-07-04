@@ -330,7 +330,7 @@ argParser.add_argument(
 )
 argParser.add_argument(
     "--gui-moral",
-    default="saferep",
+    default="GandhiB",
     metavar="moralName",
     help="The name of the moral to show in GUI.",
 )
