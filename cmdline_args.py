@@ -267,7 +267,7 @@ argParser.add_argument(
     "-c",
     "--strategy-colors",
     default="all-different",
-    choices=["all-different", "all-disc-yellow", "dem-rep", "nature"],
+    choices=["all-different", "all-disc-yellow", "nature"],
     help="Set the color map used for strategies.",
 )
 argParser.add_argument(
