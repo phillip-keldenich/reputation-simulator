@@ -320,7 +320,6 @@ def duel_with_strategy_update():
         focal, chosen, focalPayoff, chosenPayoff
     )
 
-    # TODO: note big change! HEAVEN / HELL are now ALWAYS the last players
     # do updates in random order
     duelSelectionRandom.shuffle(focalsNeighbors)
     duelSelectionRandom.shuffle(chosenNeighbors)

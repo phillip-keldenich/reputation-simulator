@@ -13,8 +13,9 @@ variants of BSD and MacOS.
 
 We have tested the software on Windows 11, Ubuntu Linux 23.04 and MacOS Ventura 13.4.1,
 and expect no problems running the software on older systems.
-We tested the software with Python 3.10.6, `numpy` version 1.21.5, `scipy` version 1.8.0 and `matplotlib` version 3.5, but expect no problems with any reasonably recent version of
-python or the dependencies.
+We tested the software with Python 3.10.6 and 3.8.15,
+`numpy` versions 1.21.5 and 1.23.5, `scipy` versions 1.8.0 and 1.9.3 and `matplotlib` versions 3.5 and 3.6.2, but expect no problems with any reasonably recent version of
+python 3 or the dependencies.
 
 ## Downloading the software
 Clone the repository to your local machine, using the command
@@ -106,13 +107,33 @@ The arguments `--hell-prob` and `--heaven-prob` control the per-duel probability
 ## Examples
 In the following, we give a few examples of how to run the software.
 
-### Demo/Example 1: Experiment similar to Figure 2
-In the first example, we run a similar experiment (identical up to random seed) as the one shown in Figure 2 of the paper.
+### Demo/Example 1: Invasion of Gandhi into an AllD population
+In the first example, we run a simple experiment in which a small cluster of individuals following the Gandhi strategy invade a population of individuals using strategy AllD.
+For this, we use the command
+
+```python main.py -I AllD_ClusterGandhiB -c nature``` or
+```python3 main.py -I AllD_ClusterGandhiB -c nature```,
+
+depending on whether our python 3 interpreter is called `python` or `python3`.
+This command tells the simulator to initialize the environment such that it starts with a population of AllD players with a small rectangular cluster of Gandhi players that initially consider everyone to be evil for cooperating with evil (`GandhiB`) at the center of the grid.
+The `-c nature` flag tells the simulator to use the `nature` color scheme,
+which is the one used in the paper.
+
+The command should open a window showing the invading group of red Gandhi players invading the orange AllD players; it should refresh every $1000$ iterations.
+On each refresh, a line indicating the current iteration and the progress of the simulation should be printed to the standard output.
+Furthermore, a directory like `2023-07-01__10-24-06.499855` with a name corresponding to the date and time of the simulation should be created.
+
+In that directory, the simulator stores snapshots of the simulation at each refresh (i.e., every 1000 iterations by default, controlled by the `-r` flag), together with the experiment configuration and statistics.
+
+On one of the authors laptops (MacBook Pro 2020, with a 2.3 GhZ Intel i7-1068NG7, 32 GiB LPDDR4 RAM) running Python 3.8.15 on MacOS Ventura 13.4.1, the complete simulation took 1034 seconds to run.
+
+### Demo/Example 2: Experiment similar to Figure 2
+In the second example, we run a similar experiment (identical up to random seed) as the one shown in Figure 2 of the paper.
 For this, we use the command
 
 ```python main.py -I DemDemRandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
 
-This instructs the simulator to use the `DemDemRandomInit` scenario to initialize the strategies, meaning that it will create two groups of Ghandi players that initially consider every player as `good`, assigning each cell to one of the two groups with uniform probability $0.5$.
+This instructs the simulator to use the `DemDemRandomInit` scenario to initialize the strategies, meaning that it will create two groups of Gandhi players that initially consider every player as `good`, assigning each cell to one of the two groups with uniform probability $0.5$.
 
 It also sets the side length of the grid to 200 (`-N` flag), measures, displays and stores information about the average score of the players (`--welfare`), and skips the usual initialization of reputations (`--no-rep-init`), which would hide the spread of polarization because polarization would spread in the initialization phase.
 
@@ -120,8 +141,8 @@ Furthermore, we set the polarizing player to be at position $(10,10)$ (`--polari
 
 Finally, we set the number of iterations between two snapshots to 10000 (`-r 10000`) and set the color scheme to `nature` (to match the color scheme used in the paper).
 
-Note that running the simulation for the full $250$ generations ($=200 \cdot 200\cdot 250 = 10000000$ iterations) takes a long time (on one of the authors desktop computers, running Ubuntu 23.04 with Python 3.10.6, `numpy` version 1.21.5, `scipy` version 1.8.0 and `matplotlib` version 3.5.1, equipped with a AMD Ryzen 7700x processor with 96 GiB of DDR5-5200 RAM, the simulation finished in 2856 seconds).
-Note that the running time may also notably depend on the operating system, the python version and the version of the dependencies.
+Note that running the simulation for the full $250$ generations ($=200 \cdot 200\cdot 250 = 10000000$ iterations) takes some time (on one of the authors desktop computers, running Ubuntu 23.04 with Python 3.10.6, `numpy` version 1.21.5, `scipy` version 1.8.0 and `matplotlib` version 3.5.1, equipped with a AMD Ryzen 7700x processor with 96 GiB of DDR5-5200 RAM, the simulation finished in 2856 seconds).
+Note that, in addition to the hardware the program runs on, the running time may also notably depend on the operating system, the python version and the version of the dependencies.
 
 ## License
 The software and its documentation are available under the MIT open source license.

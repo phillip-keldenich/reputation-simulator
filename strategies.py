@@ -31,39 +31,39 @@ mafia2 = 17
 
 # Define screen names for the strategies
 strategyName = {
-    allDefect: "allD",
-    mafia: "mafia",
+    allDefect: "AllD",
+    mafia: "Mafia",
     saferep: "GandhiB",
     kandori1: "Kandori1",
     kandori2: "Kandori2",
     kandori3: "Kandori3",
     kandori8: "Kandori8",
     kandori9: "Kandori9",
-    allCooperate: "allC",
+    allCooperate: "AllC",
     democrats: "GandhiG",
     democrats2: "GandhiG2",
-    republicans2: "republicans2",
-    kandoriInitiallyGood: "kandoriInitiallyGood",
-    safedirep: "safedirep",
-    safedirep2: "safedirep2",
-    smartMafia: "smartMafia",
-    mafia2: "mafia2",
+    republicans2: "GandhiB2",
+    kandoriInitiallyGood: "Kandori(InitiallyGood)",
+    safedirep: "Gandhi++",
+    safedirep2: "Gandhi++2",
+    smartMafia: "SmartMafia",
+    mafia2: "Mafia2",
 }
 
 # Strategies for which to insert scenarios automatically, and their names
 scenarioStrategyNames = {
     allDefect: "allD",
     allCooperate: "allC",
-    saferep: "saferep",
+    saferep: "Gandhi",
     kandori1: "kandori1",
     kandori2: "kandori2",
     kandori3: "kandori3",
     kandori8: "kandori8",
     kandori9: "kandori9",
-    democrats: "dem",
-    republicans: "rep",
-    kandoriInitiallyGood: "kandoriInitiallyGood",
-    safedirep: "safedirep",
+    democrats: "GandhiG",
+    republicans: "GandhiB",
+    kandoriInitiallyGood: "KandoriInitiallyGood",
+    safedirep: "Gandhi++",
     smartMafia: "smartMafia",
 }
 
