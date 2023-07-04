@@ -125,7 +125,7 @@ Furthermore, a directory like `2023-07-01__10-24-06.499855` with a name correspo
 
 In that directory, the simulator stores snapshots of the simulation at each refresh (i.e., every 1000 iterations by default, controlled by the `-r` flag), together with the experiment configuration and statistics.
 
-On one of the authors laptops (MacBook Pro 2020, with a 2.3 GhZ Intel i7-1068NG7, 32 GiB LPDDR4 RAM) running Python 3.8.15 on MacOS Ventura 13.4.1, the complete simulation took 1034 seconds to run.
+On one of the author's laptops (MacBook Pro 2020, with a 2.3 GhZ Intel i7-1068NG7, 32 GiB LPDDR4 RAM) running Python 3.8.15 on MacOS Ventura 13.4.1, the complete simulation took 1034 seconds to run.
 
 Note that the simulation creates a large number of files (all inside the created directory), which can and should be deleted if you do not want to keep them.
 
