@@ -30,11 +30,7 @@ if display_config.completelyDisableGUI:
     mpl.use("Agg")
 if display_config.gui_backend:
     mpl.use(display_config.gui_backend)
-# else:
-# the MacOS default backend has nasty bugs... use a working one.
-# if platform.system() == 'Darwin':
-#    if 'Qt4Agg' in mpl.rcsetup.all_backends:
-#        mpl.use('Qt4Agg')
+
 
 import matplotlib.pylab as plt
 import matplotlib.colors as colors
@@ -95,7 +91,7 @@ class PlotData:
         )
 
     def title(self):
-        return "RepEvolST3 - " + self.status()
+        return "RepEvol Simulator - " + self.status()
 
     def reputation_diff_matrix(self, moral1, moral2):
         return 7 * self.reputation[moral1] + 3 * self.reputation[moral2]
@@ -147,7 +143,7 @@ class PlotUI:
         )
 
         try:
-            self.plot.canvas.set_window_title("RepEvolST3")
+            self.plot.canvas.set_window_title("RepEvol Simulator")
         except:
             pass
         self.initializeUI()

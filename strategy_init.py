@@ -17,17 +17,11 @@
 
 import numpy as np
 
-# support for python 3
-try:
-    xrange
-except NameError:
-    xrange = range
-
 
 def setup_diagonal(strategy):
     from misc_globals import strategies, N
 
-    for x in xrange(N):
+    for x in range(N):
         strategies[x, x] = strategy
 
 
@@ -57,8 +51,8 @@ def setup_circle(center_strategy):
     from cmdline_args import args
 
     s = args.s
-    for x in xrange(N):
-        for y in xrange(N):
+    for x in range(N):
+        for y in range(N):
             if (x - N / 2.0) ** 2 + (y - N / 2.0) ** 2 < s**2:
                 strategies[x, y] = center_strategy
 
@@ -81,8 +75,8 @@ def diagonal_split_strategies(upper_strategy, lower_strategy):
     from misc_globals import strategies, N
 
     strategies[:] = upper_strategy
-    for x in xrange(N):
-        for y in xrange(x):
+    for x in range(N):
+        for y in range(x):
             strategies[x, y] = lower_strategy
 
 
@@ -124,8 +118,8 @@ def probabilistic_diagonal_split(upper_strategy, lower_strategy):
 
     prob = args.prob_for_init
     drawStrategiesIid([lower_strategy, upper_strategy], [prob, 1 - prob])
-    for x in xrange(N):
-        for y in xrange(x):
+    for x in range(N):
+        for y in range(x):
             strategies[x, y] = (
                 upper_strategy
                 if bernoulli(args.prob_for_init, initialStateRandom) == 1
@@ -181,12 +175,12 @@ def random_strategy_clusters(strategiesToUse, strategyProbs):
     )
     s = args.s
     strategies[:] = strategiesToUse[0]
-    for _ in xrange(10 * (int(N / s)) ** 2):
+    for _ in range(10 * (int(N / s)) ** 2):
         strategy = strategiesDistribution.rvs()
         rx = initialStateRandom.uniform(0, N)
         ry = initialStateRandom.uniform(0, N)
-        for x in xrange(N):
-            for y in xrange(N):
+        for x in range(N):
+            for y in range(N):
                 if (x - rx) ** 2 + (y - ry) ** 2 < s**2:
                     strategies[x, y] = strategy
 
@@ -203,12 +197,12 @@ def few_random_strategy_clusters(
     )
     s = args.s
     strategies[:] = fillStrategy
-    for _ in xrange(nClusters):
+    for _ in range(nClusters):
         strategy = strategiesDistribution.rvs()
         rx = initialStateRandom.uniform(0, N)
         ry = initialStateRandom.uniform(0, N)
-        for x in xrange(N):
-            for y in xrange(N):
+        for x in range(N):
+            for y in range(N):
                 if (x - rx) ** 2 + (y - ry) ** 2 < s**2:
                     strategies[x, y] = strategy
 
@@ -274,22 +268,6 @@ from strategies import (
 # automatically derived from this.
 scenarios = {
     # The cluster scenarios are added automatically for all pairs of strategies
-    # 'allD_ClusterSaferep':  (lambda: cluster_strategy(allDefect,    saferep)),
-    # 'allD_ClusterAllC':     (lambda: cluster_strategy(allDefect,    allCooperate)),
-    # 'allC_ClusterAllD':     (lambda: cluster_strategy(allCooperate, allDefect)),
-    # 'allC_ClusterSaferep':  (lambda: cluster_strategy(allCooperate, saferep)),
-    # 'allD_ClusterMafia':    (lambda: cluster_strategy(allDefect,    mafia)),
-    # 'allC_ClusterMafia':    (lambda: cluster_strategy(allCooperate, mafia)),
-    # 'allD_ClusterKandori1': (lambda: cluster_strategy(allDefect,    kandori1)),
-    # 'allC_ClusterKandori1': (lambda: cluster_strategy(allCooperate, kandori1)),
-    # 'allD_ClusterKandori2': (lambda: cluster_strategy(allDefect,    kandori2)),
-    # 'allC_ClusterKandori2': (lambda: cluster_strategy(allCooperate, kandori2)),
-    # 'allD_ClusterKandori3': (lambda: cluster_strategy(allDefect,    kandori3)),
-    # 'allC_ClusterKandori3': (lambda: cluster_strategy(allCooperate, kandori3)),
-    # 'allD_ClusterKandori8': (lambda: cluster_strategy(allDefect,    kandori8)),
-    # 'allC_ClusterKandori8': (lambda: cluster_strategy(allCooperate, kandori8)),
-    # 'allD_ClusterKandori9': (lambda: cluster_strategy(allDefect,    kandori9)),
-    # 'allC_ClusterKandori9': (lambda: cluster_strategy(allCooperate, kandori9)),
     "allD_CircleMafia": (lambda: circle_strategy(allDefect, mafia)),
     "allC_CircleMafia": (lambda: circle_strategy(allCooperate, mafia)),
     "halfAllD_half_AllC_ClusterSaferep": (

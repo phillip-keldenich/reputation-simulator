@@ -44,7 +44,7 @@ moralNames = {
     liberal: "liberal",
     liberal2: "liberal2",
     saferep2: "saferep2",
-    kandoriInitiallyGood: "kandoriInitiallyGood",
+    kandoriInitiallyGood: "KandoriInitiallyGood",
     safedirep: "safedirep",
     safedirep2: "safedirep2",
     smartMafia: "smartMafia",
@@ -74,9 +74,6 @@ initialAgainstBadAction = {
     safedirep: games_and_strategies.defect,
     safedirep2: games_and_strategies.cooperate,
 }
-
-# config for general Kandori reputation, see
-# https://www.ibr.cs.tu-bs.de/trac/algogame/wiki/RepEvolST%20-%20Literatur?version=14#Relevantf%C3%BCruns
 
 # T values
 kandoriPenaltyLoop = {

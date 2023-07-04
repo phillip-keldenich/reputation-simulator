@@ -6,10 +6,15 @@ _A House Divided: Cooperation, Polarization, and the Power of Reputation_.
 ## Dependencies and Requirements
 The software is written in Python 3.
 Aside from standard python packages coming with python, it requires the packages `numpy`, `scipy` and `matplotlib`.
-It should work on any operating system that supports python 3 and these packages;
+It should work on any operating system that supports python 3 and these packages and does not require any special hardware;
 these packages are required by many other applications and python packages as well,
-and are available for all well-known operating systems, such as Windows, Linux, variants of BSD and MacOS.
-We have tested the software on Windows 11, Ubuntu Linux 23.04 and MacOS Ventura 13.4.1.
+and are available for all well-known operating systems, such as Windows, Linux,
+variants of BSD and MacOS.
+
+We have tested the software on Windows 11, Ubuntu Linux 23.04 and MacOS Ventura 13.4.1,
+and expect no problems running the software on older systems.
+We tested the software with Python 3.10.6, `numpy` version 1.21.5, `scipy` version 1.8.0 and `matplotlib` version 3.5, but expect no problems with any reasonably recent version of
+python or the dependencies.
 
 ## Downloading the software
 Clone the repository to your local machine, using the command
@@ -62,7 +67,9 @@ If you are using another operating system, you can find instructions on how to i
 The software is a simulator that can be run from the command line.
 In the repository directory, run the command
 
-```python main.py```.
+```python main.py``` or ```python3 main.py```;
+
+which of these you should run depends on how the python 3 interpreter is called on your system.
 
 Running the software should open a window showing the current state of the simulation (updated, by default, once every 1000 steps); it may take some time for the window contents to update.
 

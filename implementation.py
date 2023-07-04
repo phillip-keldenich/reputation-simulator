@@ -12,7 +12,7 @@
 #
 #
 import numpy as np
-import time
+import time, sys
 from cmdline_args import args
 
 from games_and_strategies import payoffs, strategyMoral, replicatorUpdateMaxScore
@@ -160,19 +160,19 @@ def init_reputation():
         # "Initialize" reputation by playing a few rounds without strategy updates
         if config.repInitMode == config.repInitModeGlobal:
             for _ in xrange(config.numberOfReputationInitializationRounds):
-                # This is how we did it all the time: random (non-local) pairs
+                # random (non-local) pairs
                 p1 = choose_one_random_player()
                 p2 = choose_one_random_player_except(p1)
                 duel_without_strategy_update(p1, p2)
         elif config.repInitMode == config.repInitModeLocal:
             for _ in xrange(config.numberOfReputationInitializationRounds):
-                # Changed rep-init to local pairs only. (Introduces good AllDs!)
+                # rep-init with local pairs only. (Introduces good AllDs!)
                 p1 = choose_one_random_player()
                 p1Neighbors = get_neighbors(p1)
                 p2 = duelSelectionRandom.choice(p1Neighbors)
                 duel_without_strategy_update(p1, p2)
         else:
-            print("Missing reputation init mode (-I)!")
+            print("Missing/unhandled reputation init mode!")
             print(args)
             sys.exit(1)
 
