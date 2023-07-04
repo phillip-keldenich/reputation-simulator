@@ -18,6 +18,7 @@
 import argparse
 import sys
 from cmdline_parser import MyFormatter, PolarizingPlayerAction
+import strategy_init
 
 
 argParser = argparse.ArgumentParser(
@@ -108,8 +109,7 @@ argParser.add_argument(
     help="The side length of the square lattice (default: %(default)s)",
 )
 
-import strategy_init
-
+# initial strategies
 argParser.add_argument(
     "-I",
     "--initial-strategies",
@@ -128,7 +128,7 @@ argParser.add_argument(
     + "  *  X_Y_Diagonal: initialize one diagonal half with X, other with Y<>",
 )
 
-# HEAVEN/HELL settings
+# HEAVEN/HELL (virtue/evil) settings
 argParser.add_argument(
     "--hell-prob-focal",
     default=None,
