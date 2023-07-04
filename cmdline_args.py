@@ -115,17 +115,17 @@ argParser.add_argument(
     "--initial-strategies",
     choices=list(strategy_init.scenarios),
     default="allD_ClusterSaferep",
-    help="The initial assignment of strategies.  (default: %(default)s)"
+    help="The initial assignment of strategies.  (default: %(default)s)<>"
     + "Can be any of "
     + 'the following predefined populations or "custom". '
     + 'For "custom" you have to provide a script to '
     + "initialize strategies matrix via --initial-strategies-script<>"
     + "Predefined populations:<>"
-    + "  *  all[C/D]_ClusterX: initialize with all[C/D], add sxs cluster X<>"
-    + "  *  allD_CircleMafia: initialize with allD, <>"
-    + "add mafia circle with radius s in the middle<>"
-    + "  *  halfAllD_halfAllC_ClusterX: initialize upper half with allC, "
-    + "lower half with allD, then add sxs cluster X",
+    + "  *  X_ClusterY: initialize with X, add s x s rectangle cluster Y<>"
+    + "  *  X_CircleY: initialize with X, add circular cluster with radius s of Y in the middle <>"
+    + "  *  HalfX_HalfY: initialize upper half with X, lower half with Y<>"
+    + "  *  X_Y_RandomInit: initialize each cell randomly (uniformly) with X or Y<>"
+    + "  *  X_Y_Diagonal: initialize one diagonal half with X, other with Y<>",
 )
 
 # HEAVEN/HELL settings
