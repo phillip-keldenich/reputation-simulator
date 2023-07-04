@@ -127,13 +127,15 @@ In that directory, the simulator stores snapshots of the simulation at each refr
 
 On one of the authors laptops (MacBook Pro 2020, with a 2.3 GhZ Intel i7-1068NG7, 32 GiB LPDDR4 RAM) running Python 3.8.15 on MacOS Ventura 13.4.1, the complete simulation took 1034 seconds to run.
 
+Note that the simulation creates a large number of files (all inside the created directory), which can and should be deleted if you do not want to keep them.
+
 ### Demo/Example 2: Experiment similar to Figure 2
 In the second example, we run a similar experiment (identical up to random seed) as the one shown in Figure 2 of the paper.
 For this, we use the command
 
-```python main.py -I DemDemRandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
+```python3 main.py -I GandhiG_GandhiG_RandomInit -N 200 --polarizing-player="(10,10)" --no-rep-init --welfare -r 10000 -c nature```.
 
-This instructs the simulator to use the `DemDemRandomInit` scenario to initialize the strategies, meaning that it will create two groups of Gandhi players that initially consider every player as `good`, assigning each cell to one of the two groups with uniform probability $0.5$.
+This instructs the simulator to use the `GandhiG_GandhiG_RandomInit` scenario to initialize the strategies, meaning that it will create two groups of Gandhi players that initially consider every player as `good` (`GandhiG`), assigning each cell to one of the two groups with uniform probability $0.5$.
 
 It also sets the side length of the grid to 200 (`-N` flag), measures, displays and stores information about the average score of the players (`--welfare`), and skips the usual initialization of reputations (`--no-rep-init`), which would hide the spread of polarization because polarization would spread in the initialization phase.
 

@@ -268,86 +268,84 @@ from strategies import (
 # automatically derived from this.
 scenarios = {
     # The cluster scenarios are added automatically for all pairs of strategies
-    "allD_CircleMafia": (lambda: circle_strategy(allDefect, mafia)),
-    "allC_CircleMafia": (lambda: circle_strategy(allCooperate, mafia)),
-    "halfAllD_half_AllC_ClusterSaferep": (
+    "AllD_CircleMafia": (lambda: circle_strategy(allDefect, mafia)),
+    "AllC_CircleMafia": (lambda: circle_strategy(allCooperate, mafia)),
+    "HalfAllD_HalfAllC_ClusterGandhi": (
         lambda: (
             vertical_split_strategies(allCooperate, allDefect),
             setup_cluster(saferep),
         )
     ),
-    "halfAllD_halfAllC_ClusterMafia": (
+    "HalfAllD_HalfAllC_ClusterMafia": (
         lambda: (
             vertical_split_strategies(allCooperate, allDefect),
             setup_cluster(mafia),
         )
     ),
-    "halfMafia_halfSaferep": (lambda: vertical_split_strategies(mafia, saferep)),
-    "DemRep": (lambda: horizontal_split_strategies(democrats, saferep)),
-    "DemDem": (lambda: horizontal_split_strategies(democrats, democrats2)),
-    "DemRepRandomInit": (lambda: random_strategies(saferep, democrats)),
-    "DemRepDiagonal": (
+    "HalfMafia_HalfGandhi": (lambda: vertical_split_strategies(mafia, saferep)),
+    "HalfGandhiG_HalfGandhiB": (lambda: horizontal_split_strategies(democrats, saferep)),
+    "HalfGandhiG_HalfGandhiG": (lambda: horizontal_split_strategies(democrats, democrats2)),
+    "GandhiG_GandhiB_RandomInit": (lambda: random_strategies(saferep, democrats)),
+    "GandhiG_GandhiB_Diagonal": (
         lambda: (
             diagonal_split_strategies(democrats, saferep),
             setup_diagonal(allCooperate),
         )
     ),
-    "DemRepRandomDiagonal": (lambda: probabilistic_diagonal_split(democrats, saferep)),
-    "DemRepAllDAllCRandom": (
+    "GandhiG_GandhiB_RandomDiagonal": (lambda: probabilistic_diagonal_split(democrats, saferep)),
+    "GandhiG_GandhiB_AllD_AllC_Random": (
         lambda: drawStrategiesIid(
             [democrats, saferep, allDefect, allCooperate], [0.25, 0.25, 0.25, 0.25]
         )
     ),
-    "DemDemRandomInit": (lambda: random_strategies(democrats, democrats2)),
-    "MafiaMafia2RandomInit": (lambda: random_strategies(mafia, mafia2)),
-    "MafiaSaferepRandomInit": (lambda: random_strategies(saferep, mafia)),
-    "dem_ClusterRep": (lambda: cluster_strategy(democrats, saferep)),
-    "kandoriDemRep": (lambda: random_strategies(kandoriInitiallyGood, kandori8)),
-    "AllDAllC_ClusterDemRep": (
+    "GandhiG_GandhiG_RandomInit": (lambda: random_strategies(democrats, democrats2)),
+    "Mafia_Mafia_RandomInit": (lambda: random_strategies(mafia, mafia2)),
+    "Mafia_Gandhi_RandomInit": (lambda: random_strategies(saferep, mafia)),
+    "GandhiG_ClusterGandhiB": (lambda: cluster_strategy(democrats, saferep)),
+    "KandoriG_Kandori8_RandomInit": (lambda: random_strategies(kandoriInitiallyGood, kandori8)),
+    "AllD_AllC_ClusterGandhiG_GandhiB": (
         lambda: (
             vertical_split_strategies(allCooperate, allDefect),
             two_clusters(saferep, democrats, 20),
         )
     ),
-    "DemDemDiagonal": (
+    "GandhiG_GandhiG_Diagonal": (
         lambda: (
             diagonal_split_strategies(democrats, democrats2),
             setup_diagonal(allCooperate),
         )
     ),
-    "RepRepDiagonal": (
+    "GandhiB_GandhiB_Diagonal": (
         lambda: (
             diagonal_split_strategies(saferep, republicans2),
             setup_diagonal(allCooperate),
         )
     ),
-    "DemSafedirep": (lambda: (random_strategies(safedirep, safedirep2))),
-    "SafedirepSaferep": (lambda: horizontal_split_strategies(saferep, safedirep)),
-    "SafedirepSaferepRandomInit": (lambda: random_strategies(saferep, safedirep)),
-    "SafedirepSafedirep2Chessboard": (
+    "Gandhi++_Gandhi++_RandomInit": (lambda: (random_strategies(safedirep, safedirep2))),
+    "Half_Gandhi_Half_Gandhi++": (lambda: horizontal_split_strategies(saferep, safedirep)),
+    "Gandhi_Gandhi++_RandomInit": (lambda: random_strategies(saferep, safedirep)),
+    "Gandhi++_Gandhi++_Chessboard": (
         lambda: chess_board_strategies(safedirep, safedirep2, 20)
     ),
-    "LiberalLiberal2": (lambda: horizontal_split_strategies(democrats, democrats2)),
-    "SafedirepSafedirep2": (lambda: horizontal_split_strategies(safedirep, safedirep2)),
-    "SafedirepSafedirep2WithAllDAllC": (
+    "Half_GandhiG_Half_GandhiG": (lambda: horizontal_split_strategies(democrats, democrats2)),
+    "Half_Gandhi++_Half_Gandhi++": (lambda: horizontal_split_strategies(safedirep, safedirep2)),
+    "Gandhi++_Gandhi++_AllD_AllC_RandomInit": (
         lambda: drawStrategiesIid(
             [safedirep, safedirep2, allDefect, allCooperate], [0.45, 0.45, 0.05, 0.05]
         )
     ),
-    "SafedirepSafedirep2WithAllDAllCClusters": (
+    "Gandhi++_Gandhi++_AllD_AllC_Clusters": (
         lambda: random_strategy_clusters(
             [safedirep, safedirep2, allDefect, allCooperate], [0.4, 0.4, 0.1, 0.1]
         )
     ),
-    "SafedirepSaferepRandomClusters": (
+    "Gandhi++_Gandhi_RandomClusters": (
         lambda: random_strategy_clusters([safedirep, saferep], [0.5, 0.5])
     ),
-    "SafedirepSaferepFewRandomClusters": (
+    "Gandhi++_Gandhi_FewRandomClusters": (
         lambda: few_random_strategy_clusters(safedirep, 5, [saferep], [1.0])
     ),
-    "SafedirepSafedirep2RandomInit": (lambda: random_strategies(safedirep, safedirep2)),
-    "SafedirepClusterSaferep": (lambda: cluster_strategy(safedirep, democrats)),
-    "allD_ClusterDemRep": (
+    "AllD_GandhiG_GandhiG_FewRandomClusters": (
         lambda: few_random_strategy_clusters(
             allDefect, 30, [democrats2, democrats], [0.5, 0.5]
         )
