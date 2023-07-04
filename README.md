@@ -1,7 +1,7 @@
 # RepEvol Simulator
 This is the readme for the RepEvol simulator software.
 This software was used to generate all data for the paper
-_A House Divided: Cooperation, Polarization, and the Power of Reputation_.
+_A House Divided: Cooperation, Polarization, and the Power of Reputation_ ([preprint](https://doi.org/10.21203/rs.3.rs-3117463/v1)).
 
 ## Dependencies and Requirements
 The software is written in Python 3.
